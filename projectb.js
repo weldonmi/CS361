@@ -32,7 +32,7 @@ app.set('view engine', 'handlebars');
 app.set('port', 3030);
 
 //Reset table via button on the page.
-/*app.post('/reset-table',function(req,res,next){
+app.post('/reset-table',function(req,res,next){
   var context = {};
   pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE workout("+
@@ -65,7 +65,7 @@ app.get('/reset-table',function(req,res,next){
       res.render('home',context);
     })
   });
-});*/
+});
 
 app.get('/', function(req, res, next){
 	var context = {};
