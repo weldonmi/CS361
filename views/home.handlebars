@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="/css/home.css" type="text/css">
+</head>
+
+<body>
+<h1><CENTER>WELCOME TO YOUR EXERCISE RECORD</CENTER></H1>
+
+<div>
+<form >
+	Exercise name: <input type="text" id="name">
+	Reps: <input type="number" id="reps" size="10px">
+	Weight: <input type="number" id="weight" size="10px">
+	Date: <input type="date" id="date">
+	Pounds: <input type="checkbox" id="lbs" value="NOT NULL">
+	<input type="submit" id="subButton" value="submit">
+</form>
+</div>
+<div class="results" id="resultDiv">
+Table Loaded
+</div>
+<br><br>
+<table id="headTable">
+	<tr>
+	<th>Name</th>
+	<th>Reps</th>
+	<th>Weight</th>
+	<th>Date</th>
+	<th>Pounds</th>
+	<th>Edit/Delete</th>
+	
+</table>
+<table id="exerTable">
+</table>
+<br><br>
+<div class="resetButton">
+<input type="button" id="resetButton" value="Reset Table" class="resetButton">
+</div>
+<script src="/scripts/script.js"></script>
+</body>
+</html>
