@@ -64,14 +64,8 @@ app.get('/reset-table',function(req,res,next){
   });
 });
 
-// ---- Training Modules page ----
-var trainingModules = require('./training-modules.js');
-
-app.get('/training-modules', function(req, res, next) {
-    trainingModules.getTrainingModulesListing(function(viewModel) {
-        res.render('training-modules', viewModel);
-    });
-});
+var trainingModules = require('./controllers/trainingModules.js');
+app.use('/training-modules', trainingModules);
 
 app.get('/', function(req, res, next){
 	var context = {};

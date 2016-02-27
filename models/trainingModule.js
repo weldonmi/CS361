@@ -1,7 +1,3 @@
-module.exports = {
-    getTrainingModulesListing: getTrainingModulesListing
-};
-
 // TODO: actually connect to database
 function getTrainingModulesListing(callback) {
     // The reason this is a callback is because the database connection and stuff will
@@ -16,3 +12,7 @@ function getTrainingModulesListing(callback) {
         }]
     });
 }
+
+module.exports = {
+    getTrainingModulesListing: getTrainingModulesListing
+};
