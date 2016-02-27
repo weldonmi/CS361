@@ -5,9 +5,7 @@ It can also be reset by visiting http://52.27.188.34:3030/reset-table
 */
 
 var request = require('request');
-
 var express = require('express');
-
 var mysql = require('mysql');
 var pool = mysql.createPool({
 	host 	:	'localhost',
@@ -15,13 +13,12 @@ var pool = mysql.createPool({
 	password:	'default',
 	database:	'student'
 });
-
-module.exports.pool = pool;
-
-var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var session= require('express-session');
 var bodyParser = require('body-parser');
+module.exports.pool = pool;
+
+var app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -65,6 +62,15 @@ app.get('/reset-table',function(req,res,next){
       res.render('home',context);
     })
   });
+});
+
+// ---- Training Modules page ----
+var trainingModules = require('./training-modules.js');
+
+app.get('/training-modules', function(req, res, next) {
+    trainingModules.getTrainingModulesListing(function(viewModel) {
+        res.render('training-modules', viewModel);
+    });
 });
 
 app.get('/', function(req, res, next){
