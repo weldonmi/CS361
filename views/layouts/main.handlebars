@@ -24,8 +24,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/training-modules">Training Modules</a></li>
+            <li {{#if homeActive}} class="active" {{/if}}><a href="/">Home</a></li>
+            <li {{#if trainingActive}} class="active" {{/if}}><a href="/training-modules">Training Modules</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -68,7 +68,9 @@ var trainingModules = require('./controllers/trainingModules.js');
 app.use('/training-modules', trainingModules);
 
 app.get('/', function(req, res, next){
-	var context = {};
+	var context = {
+        homeActive: true
+    };
 	res.render('home',context);
 });
 
