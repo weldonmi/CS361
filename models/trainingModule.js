@@ -26,7 +26,7 @@ function getTrainingModulesListing(callback) {
               
               console.log(rows);
 
-            getTrainingModule(function(){},1);
+//            getTrainingModule(function(){},1); used for testing
             
               callback(result);    
     
