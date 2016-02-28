@@ -89,7 +89,7 @@ app.post('/reset-modules-table',function(req,res,next){
 });
 
 pool.query("INSERT INTO modules (`moduleName`)"+
-	"VALUES (value1)",
+	"VALUES (?)",
 	["How to be nice"],
 	function(err){
       console.log("Could not add to module");
