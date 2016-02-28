@@ -62,7 +62,7 @@ app.get('/reset-user-table',function(req,res,next){
     "`userPassword` varchar(255) NOT NULL,"+
     "`shelterID` int NOT NULL,"+
 	"PRIMARY KEY (`idUser`),"+
-	"FOREIGN KEY (`shelterID`) REFERENCES `shelter` (`idShelter`),"+
+	"FOREIGN KEY (`shelterID`) REFERENCES `shelter` (`idShelter`)"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
       console.log(err);
