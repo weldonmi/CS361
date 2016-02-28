@@ -88,13 +88,19 @@ app.post('/reset-modules-table',function(req,res,next){
   });
 });
 
-pool.query("INSERT INTO modules (`moduleName`)"+
-	"VALUES (?)",
-	["How to be nice"],
-	function(evt){
-		var context;
-		context.results = evt;
-		console.log(context.results);
+app.get('/insertDummy', function(req, res, next){
+	var context = {};
+	pool.query("INSERT INTO modules (`moduleName`)"+
+		"VALUES (?)",
+		["How to be nice"],
+		function(err, result){
+			if(err){
+				next(err);
+				return;
+			}
+			context.results = result.insertId;
+			console.log(context.results);
+	})
 });
 
 var trainingModules = require('./controllers/trainingModules.js');
