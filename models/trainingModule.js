@@ -26,6 +26,8 @@ function getTrainingModulesListing(callback) {
               
               console.log(rows);
 
+            getTrainingModule(function(){},1);
+            
               callback(result);    
     
 //            context.results = JSON.stringify(rows);
