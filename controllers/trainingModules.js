@@ -8,6 +8,7 @@ router.get('/', function(req, res) {
             modules: modules,
             trainingActive: true
         };
+        trainingModule.getTrainingModule(NULL,1);//inserted for testing individual call
         res.render('training-modules', context);
     });
 });

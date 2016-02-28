@@ -44,6 +44,8 @@ function getTrainingModule(callback_individual,module_ID){
             result.ModuleVideo = rows.ModuleVideo;
             result.AddedDate = rows.AddedDate;
 
+            console.log(JSON.stringify(result));//used to ensure results are correctly output
+        
             callback_individual(result);
     }               
                
