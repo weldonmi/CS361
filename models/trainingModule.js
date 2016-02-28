@@ -10,6 +10,16 @@ function getTrainingModulesListing(callback) {
         name: "How to be helpful",
         addedDate: "12-26-2015"
     }]);
+	
+	pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
+		var createString = "SELECT ModuleName, AddedDate, LinkToModulePage "+
+		"FROM modules";
+		pool.query(createString, function(err){
+			context = JSON.stringify(rows);
+			res.send(context);
+		})
+	});
+	
 }
 
 module.exports = {

@@ -29,39 +29,71 @@ app.set('view engine', 'handlebars');
 app.set('port', 3030);
 
 //Reset table via button on the page.
-app.post('/reset-table',function(req,res,next){
+app.post('/reset-shelter-table',function(req,res,next){
   var context = {};
   pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
-    var createString = "CREATE TABLE workout("+
-    "id INT PRIMARY KEY AUTO_INCREMENT,"+
-    "name VARCHAR(255) NOT NULL,"+
-    "reps INT,"+
-    "weight INT,"+
-    "date DATE,"+
-    "lbs BOOLEAN)";
+    var createString = "CREATE TABLE `shelter` ("+
+    "`idShelter` int NOT NULL AUTO_INCREMENT,"+
+    "`shelterName` varchar(45) NOT NULL,"+
+    "`addressLine1` varchar(45) DEFAULT NULL,"+
+    "`addressLine2` varchar(45) DEFAULT NULL,"+
+    "`city` varchar(45) DEFAULT NULL,"+
+    "`state` varchar(45) DEFAULT NULL,"+
+	"`postalCode` varchar(45) DEFAULT NULL,"+
+	"`phone` varchar(45) DEFAULT NULL,"+
+	"PRIMARY KEY (`idShelter`),"+
+	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
       context.results = "Table reset";
-      res.render('home',context);
     })
   });
 });
 
-//Reset table by visiting /reset-table page.
-app.get('/reset-table',function(req,res,next){
+app.post('/reset-user-table',function(req,res,next){
   var context = {};
-  pool.query("DROP TABLE IF EXISTS xxxx", function(err){
-    var createString = "CREATE TABLE xxxx("+
-    "id INT PRIMARY KEY AUTO_INCREMENT,"+
-    "name VARCHAR(255) NOT NULL,"+
-    "reps INT,"+
-    "weight INT,"+
-    "date DATE,"+
-    "lbs BOOLEAN)";
+  pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
+    var createString = "CREATE TABLE `user` ("+
+    "`idUser` int NOT NULL AUTO_INCREMENT,"+
+    "`userLastName` varchar(45) NOT NULL,"+
+    "`userFirstName` varchar(45) DEFAULT NULL,"+
+    "`userEmail` varchar(255) DEFAULT NULL,"+
+    "`userPassword` varchar(255) NOT NULL,"+
+    "`shelterID` int NOT NULL,"+
+	"PRIMARY KEY (`idUser`),"+
+	"FOREIGN KEY (`shelterID`) REFERENCES `shelter` (`idShelter`)"+
+	"ON DELETE SET NULL ON UPDATE CASCADE"+
+	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
       context.results = "Table reset";
-      res.render('home',context);
     })
   });
+});
+
+app.post('/reset-modules-table',function(req,res,next){
+  var context = {};
+  pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
+    var createString = "CREATE TABLE `modules` ("+
+    "`idModule` int NOT NULL AUTO_INCREMENT,"+
+    "`moduleName` varchar(255) NOT NULL,"+
+    "`LinkToModulePage` varchar(255) DEFAULT NULL,"+
+    "`ModuleDescription` varchar(255) DEFAULT NULL,"+
+    "`ModuleVideo` varchar(255) NOT NULL,"+
+	"`AddedDate` date NOT NULL,"
+    "PRIMARY KEY (`idModule`),"+
+	") ENGINE = InnoDB;";
+    pool.query(createString, function(err){
+      context.results = "Table reset";
+    })
+  });
+});
+
+pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
+    var createString = "INSERT INTO modules (`moduleName`, `LinkToModulePage`, `ModuleDescription`, `ModuleVideo`, `AddedDate`)"+
+	"VALUES (value1, value2, value3, value4, value5)",
+	["How to be nice", "HowToBeNice", "This module is about how to be nice", "youtube.com/something", DATE_FORMAT(NOW(),'%m-%d-%Y')];
+    pool.query(createString, function(err){
+      context.results = "Table reset";
+	})
 });
 
 var trainingModules = require('./controllers/trainingModules.js');
