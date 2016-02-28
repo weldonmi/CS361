@@ -87,12 +87,12 @@ app.post('/reset-modules-table',function(req,res,next){
   });
 });
 
-pool.query("INSERT INTO modules (`moduleName`)"+
+/*pool.query("INSERT INTO modules (`moduleName`)"+
 	"VALUES (value1)",
 	["How to be nice"],
 	function(err){
       console.log("Could not add to module");
-});
+});*/
 
 var trainingModules = require('./controllers/trainingModules.js');
 app.use('/training-modules', trainingModules);
