@@ -44,8 +44,7 @@ app.get('/reset-shelter-table',function(req,res,next){
 	"PRIMARY KEY (`idShelter`),"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
-      context.results = "Shelter table reset";
-	  res.render('home');
+      context.results = "Table reset";
     })
   });
 });
@@ -66,7 +65,6 @@ app.get('/reset-user-table',function(req,res,next){
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
       context.results = "User table reset";
-	  res.render('home');
     })
   });
 });
