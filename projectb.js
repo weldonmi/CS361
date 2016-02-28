@@ -72,7 +72,7 @@ app.post('/reset-user-table',function(req,res,next){
 app.post('/reset-modules-table',function(req,res,next){
   var context = {};
   pool.query("DROP TABLE IF EXISTS modules", function(err){ //replace your connection pool with the your variable containing the connection pool
-    var createString = "CREATE TABLE `modules` ("+
+    var createString = "CREATE TABLE modules ("+
     "`idModule` int NOT NULL AUTO_INCREMENT,"+
     "`moduleName` varchar(255) NOT NULL,"+
     "`LinkToModulePage` varchar(255),"+
@@ -81,8 +81,8 @@ app.post('/reset-modules-table',function(req,res,next){
 	"`AddedDate` date,"
     "PRIMARY KEY (`idModule`)"+
 	") ENGINE = InnoDB;";
-    pool.query(createString, function(evt){
-      context.results = evt;
+    pool.query(createString, function(err){
+      console.log("Table Reset");
 	  res.render('home');
     })
   });
