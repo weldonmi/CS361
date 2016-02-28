@@ -65,7 +65,8 @@ app.get('/reset-user-table',function(req,res,next){
 	"FOREIGN KEY (`shelterID`) REFERENCES `shelter` (`idShelter`),"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
-      context.results = "User table reset";
+      console.log(err);
+	  context.results = "User table reset";
 	  res.render('home');
     })
   });
