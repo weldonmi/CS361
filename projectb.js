@@ -79,7 +79,7 @@ app.post('/reset-modules-table',function(req,res,next){
     "`ModuleDescription` varchar(255),"+
     "`ModuleVideo` varchar(255),"+
 	"`AddedDate` date,"
-    "PRIMARY KEY (`idModule`),"+
+    "PRIMARY KEY (`idModule`)"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
       context.results = "Table reset";
