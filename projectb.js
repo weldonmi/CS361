@@ -41,7 +41,7 @@ app.get('/reset-shelter-table',function(req,res,next){
     "`state` varchar(45) DEFAULT NULL,"+
 	"`postalCode` varchar(45) DEFAULT NULL,"+
 	"`phone` varchar(45) DEFAULT NULL,"+
-	"PRIMARY KEY (`idShelter`),"+
+	"PRIMARY KEY (`idShelter`)"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
       context.results = "Shelter table reset";
@@ -61,8 +61,7 @@ app.get('/reset-user-table',function(req,res,next){
     "`userPassword` varchar(255) NOT NULL,"+
     "`shelterID` int NOT NULL,"+
 	"PRIMARY KEY (`idUser`),"+
-	"FOREIGN KEY (`shelterID`) REFERENCES `shelter` (`idShelter`)"+
-	"ON DELETE SET NULL ON UPDATE CASCADE"+
+	"FOREIGN KEY (`shelterID`) REFERENCES `shelter` (`idShelter`),"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
       context.results = "User table reset";
