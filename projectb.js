@@ -81,8 +81,8 @@ app.post('/reset-modules-table',function(req,res,next){
 	"`AddedDate` date,"
     "PRIMARY KEY (`idModule`)"+
 	") ENGINE = InnoDB;";
-    pool.query(createString, function(err){
-      context.results = "Table reset";
+    pool.query(createString, function(evt){
+      context.results = evt;
 	  res.render('home');
     })
   });
@@ -91,8 +91,10 @@ app.post('/reset-modules-table',function(req,res,next){
 pool.query("INSERT INTO modules (`moduleName`)"+
 	"VALUES (?)",
 	["How to be nice"],
-	function(err){
-      console.log("Could not add to module");
+	function(evt){
+		var context;
+		context.results = evt;
+		console.log(context.results);
 });
 
 var trainingModules = require('./controllers/trainingModules.js');
