@@ -71,8 +71,9 @@ app.get('/reset-user-table',function(req,res,next){
 
 app.get('/reset-modules-table',function(req,res,next){
   var context = {};
-  pool.query("DROP TABLE IF EXISTS modules", function(err){ //replace your connection pool with the your variable containing the connection pool
-    var createString = "CREATE TABLE modules ("+
+  //pool.query("DROP TABLE IF EXISTS modules", function(err){ //replace your connection pool with the your variable containing the connection pool
+    var createString = "DROP TABLE IF EXISTS modules; "+
+	"CREATE TABLE modules ("+
     "`idModule` int NOT NULL AUTO_INCREMENT,"+
     "`moduleName` varchar(255) NOT NULL,"+
     "`LinkToModulePage` varchar(255),"+
