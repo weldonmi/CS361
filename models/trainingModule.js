@@ -27,7 +27,7 @@ function getTrainingModulesListing(callback) {
 
     
     
-    
+ /*   
 =======
     callback([{
         name: "How to write a resume",
@@ -64,7 +64,7 @@ function getTrainingModulesListing(callback) {
 			res.send(context);
 		})
 	});
-	
+	*/
 >>>>>>> origin/master
 }
 
