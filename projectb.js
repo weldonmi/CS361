@@ -29,7 +29,7 @@ app.set('view engine', 'handlebars');
 app.set('port', 3030);
 
 //Reset table via button on the page.
-app.post('/reset-shelter-table',function(req,res,next){
+app.get('/reset-shelter-table',function(req,res,next){
   var context = {};
   pool.query("DROP TABLE IF EXISTS shelter", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE `shelter` ("+
@@ -49,10 +49,10 @@ app.post('/reset-shelter-table',function(req,res,next){
   });
 });
 
-app.post('/reset-user-table',function(req,res,next){
+app.get('/reset-user-table',function(req,res,next){
   var context = {};
   pool.query("DROP TABLE IF EXISTS user", function(err){ //replace your connection pool with the your variable containing the connection pool
-    var createString = "CREATE TABLE `user` ("+
+    var createString = "CREATE TABLE user ("+
     "`idUser` int NOT NULL AUTO_INCREMENT,"+
     "`userLastName` varchar(45) NOT NULL,"+
     "`userFirstName` varchar(45) DEFAULT NULL,"+
@@ -64,12 +64,12 @@ app.post('/reset-user-table',function(req,res,next){
 	"ON DELETE SET NULL ON UPDATE CASCADE"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
-      context.results = "Table reset";
+      context.results = "User table reset";
     })
   });
 });
 
-app.post('/reset-modules-table',function(req,res,next){
+app.get('/reset-modules-table',function(req,res,next){
   var context = {};
   pool.query("DROP TABLE IF EXISTS modules", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE modules ("+
@@ -82,7 +82,7 @@ app.post('/reset-modules-table',function(req,res,next){
     "PRIMARY KEY (`idModule`)"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
-      console.log("Table Reset");
+      console.log("Modules table Reset");
 	  res.render('home');
     })
   });
