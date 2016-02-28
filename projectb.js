@@ -32,7 +32,7 @@ app.set('port', 3030);
 app.get('/reset-shelter-table',function(req,res,next){
   var context = {};
   pool.query("DROP TABLE IF EXISTS shelter", function(err){ //replace your connection pool with the your variable containing the connection pool
-    var createString = "CREATE TABLE shelter ("+
+    var createString = "CREATE TABLE `shelter` ("+
     "`idShelter` int NOT NULL AUTO_INCREMENT,"+
     "`shelterName` varchar(45) NOT NULL,"+
     "`addressLine1` varchar(45) DEFAULT NULL,"+
