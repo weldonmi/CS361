@@ -44,6 +44,7 @@ app.get('/reset-shelter-table',function(req,res,next){
 	"PRIMARY KEY (`idShelter`)"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
+	  console.log(err);
       context.results = "Shelter table reset";
 	  res.render('home');
     })
