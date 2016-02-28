@@ -91,7 +91,7 @@ app.post('/reset-modules-table',function(req,res,next){
 app.get('/insertDummy', function(req, res, next){
 	var context = {};
 	pool.query("INSERT INTO modules (`moduleName`, `LinkToModulePage`, `ModuleDescription`, `ModuleVideo`, `AddedDate`)"+
-		"VALUES (?,?,?,?, DATE_FORMAT(NOW(),'%m-%d-%Y'))",
+		"VALUES (?,?,?,?,CURRENT_DATE)",
 		["How to be nice", "HowToBeNice", "A module on being nice", "videoUrl"],
 		function(err, result){
 			if(err){
