@@ -87,13 +87,11 @@ app.post('/reset-modules-table',function(req,res,next){
   });
 });
 
-pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
-    var createString = "INSERT INTO modules (`moduleName`)"+
+pool.query("INSERT INTO modules (`moduleName`)"+
 	"VALUES (value1)",
-	["How to be nice"];
-    pool.query(createString, function(err){
+	["How to be nice"],
+	function(err){
       context.results = "Table reset";
-	})
 });
 
 var trainingModules = require('./controllers/trainingModules.js');
