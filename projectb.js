@@ -77,7 +77,6 @@ app.get('/reset-modules-table',function(req,res,next){
     var createString = "CREATE TABLE modules (" +
     "`idModule` int NOT NULL AUTO_INCREMENT," +
     "`moduleName` varchar(255) NOT NULL," +
-//    "`LinkToModulePage` varchar(255)," + commented for lack of need
     "`ModuleDescription` varchar(255)," +
     "`ModuleVideo` varchar(255)," +
 	"`AddedDate` date," +
