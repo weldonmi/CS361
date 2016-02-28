@@ -91,7 +91,7 @@ pool.query("INSERT INTO modules (`moduleName`)"+
 	"VALUES (value1)",
 	["How to be nice"],
 	function(err){
-      context.results = "Table reset";
+      console.log("Could not add to module");
 });
 
 var trainingModules = require('./controllers/trainingModules.js');
