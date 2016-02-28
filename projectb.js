@@ -63,6 +63,7 @@ app.get('/reset-user-table',function(req,res,next){
     "`shelterID` int NOT NULL,"+
 	"PRIMARY KEY (`idUser`),"+
 	"FOREIGN KEY (`shelterID`) REFERENCES `shelter` (`idShelter`)"+
+	"ON DELETE SET NULL ON UPDATE CASCADE"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
       console.log(err);
