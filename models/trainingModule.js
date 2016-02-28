@@ -3,7 +3,7 @@ function getTrainingModulesListing(callback) {
     // The reason this is a callback is because the database connection and stuff will
     // work using callbacks. This will cause a little less friction when we move to using
     // the database.
-<<<<<<< HEAD
+//<<<<<<< HEAD
     
         pool.query('SELECT moduleName, AddedDate FROM modules', function (err, rows, fields)         {
             if(err){
@@ -65,7 +65,7 @@ function getTrainingModulesListing(callback) {
 		})
 	});
 	*/
->>>>>>> origin/master
+//>>>>>>> origin/master
 }
 
 module.exports = {
