@@ -1,3 +1,10 @@
+var mysql = require('mysql');
+var pool = mysql.createPool({
+	host 	:	'localhost',
+	user 	:	'student',
+	password:	'default',
+	database:	'student'
+});
 // TODO: actually connect to database
 function getTrainingModulesListing(callback) {
     // The reason this is a callback is because the database connection and stuff will
