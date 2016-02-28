@@ -35,7 +35,7 @@ function getTrainingModulesListing(callback) {
 
 function getTrainingModule(callback_individual,module_ID){
 
-    pool.query('SELECT * FROM modules WHERE idModule = ?',[module_ID],  function(err,rows,fields,))
+    pool.query('SELECT * FROM modules WHERE idModule = ?',[module_ID],  function(err,rows,fields))
     {
             var result = {};
             result.idModule = rows.idModule;
