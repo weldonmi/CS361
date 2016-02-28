@@ -75,10 +75,10 @@ app.post('/reset-modules-table',function(req,res,next){
     var createString = "CREATE TABLE `modules` ("+
     "`idModule` int NOT NULL AUTO_INCREMENT,"+
     "`moduleName` varchar(255) NOT NULL,"+
-    "`LinkToModulePage` varchar(255) DEFAULT NULL,"+
-    "`ModuleDescription` varchar(255) DEFAULT NULL,"+
-    "`ModuleVideo` varchar(255) NOT NULL,"+
-	"`AddedDate` date NOT NULL,"
+    "`LinkToModulePage` varchar(255),"+
+    "`ModuleDescription` varchar(255),"+
+    "`ModuleVideo` varchar(255),"+
+	"`AddedDate` date,"
     "PRIMARY KEY (`idModule`),"+
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
@@ -88,9 +88,9 @@ app.post('/reset-modules-table',function(req,res,next){
 });
 
 pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
-    var createString = "INSERT INTO modules (`moduleName`, `LinkToModulePage`, `ModuleDescription`, `ModuleVideo`, `AddedDate`)"+
-	"VALUES (value1, value2, value3, value4, value5)",
-	["How to be nice", "HowToBeNice", "This module is about how to be nice", "something", "2016/02/28"];
+    var createString = "INSERT INTO modules (`moduleName`)"+
+	"VALUES (value1)",
+	["How to be nice"];
     pool.query(createString, function(err){
       context.results = "Table reset";
 	})
