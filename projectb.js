@@ -83,6 +83,7 @@ app.post('/reset-modules-table',function(req,res,next){
 	") ENGINE = InnoDB;";
     pool.query(createString, function(err){
       context.results = "Table reset";
+	  res.render('home');
     })
   });
 });
