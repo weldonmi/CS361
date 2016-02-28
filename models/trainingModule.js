@@ -39,13 +39,18 @@ function getTrainingModule(callback_individual,module_ID){
 
     pool.query('SELECT * FROM modules WHERE idModule = ?',[module_ID],  function(err,rows,fields)
     {
-            var result = {};
-            result.idModule = rows.idModule;
+        console.log(rows);
+            var result = {idModule : rows.idModule, name : rows.moduleName, ModuleDescription : rows.ModuleDescription, ModuleVideo : rows.ModuleVideo, AddedDate : rows.AddedDate};
+            
+        
+        
+        
+/*            result.idModule = rows.idModule;
             result.name = rows.moduleName;
             result.ModuleDescription = rows.ModuleDescription;
             result.ModuleVideo = rows.ModuleVideo;
             result.AddedDate = rows.AddedDate;
-
+*/
             console.log(result);//used to ensure results are correctly output
         
             callback_individual(result);
