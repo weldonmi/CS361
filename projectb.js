@@ -31,7 +31,7 @@ app.set('port', 3030);
 //Reset table via button on the page.
 app.post('/reset-shelter-table',function(req,res,next){
   var context = {};
-  pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
+  pool.query("DROP TABLE IF EXISTS shelter", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE `shelter` ("+
     "`idShelter` int NOT NULL AUTO_INCREMENT,"+
     "`shelterName` varchar(45) NOT NULL,"+
@@ -51,7 +51,7 @@ app.post('/reset-shelter-table',function(req,res,next){
 
 app.post('/reset-user-table',function(req,res,next){
   var context = {};
-  pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
+  pool.query("DROP TABLE IF EXISTS user", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE `user` ("+
     "`idUser` int NOT NULL AUTO_INCREMENT,"+
     "`userLastName` varchar(45) NOT NULL,"+
@@ -71,7 +71,7 @@ app.post('/reset-user-table',function(req,res,next){
 
 app.post('/reset-modules-table',function(req,res,next){
   var context = {};
-  pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
+  pool.query("DROP TABLE IF EXISTS modules", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE `modules` ("+
     "`idModule` int NOT NULL AUTO_INCREMENT,"+
     "`moduleName` varchar(255) NOT NULL,"+
