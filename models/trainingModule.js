@@ -19,7 +19,7 @@ function getTrainingModulesListing(callback) {
             }
               
             var result = [];
-            for (var i = 0; i < row.length; i++)
+            for (var i = 0; i < rows.length; i++)
             {
                 result.push({name : rows[i].moduleName, addedDate : rows[i].AddedDate});
             }
