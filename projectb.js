@@ -90,7 +90,7 @@ app.post('/reset-modules-table',function(req,res,next){
 pool.query("DROP TABLE IF EXISTS xxxx", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "INSERT INTO modules (`moduleName`, `LinkToModulePage`, `ModuleDescription`, `ModuleVideo`, `AddedDate`)"+
 	"VALUES (value1, value2, value3, value4, value5)",
-	["How to be nice", "HowToBeNice", "This module is about how to be nice", "something", DATE_FORMAT(NOW(),'%m-%d-%Y')];
+	["How to be nice", "HowToBeNice", "This module is about how to be nice", "something", "2016/02/28"];
     pool.query(createString, function(err){
       context.results = "Table reset";
 	})
